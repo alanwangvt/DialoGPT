@@ -1,0 +1,14 @@
+9/6/2022
+
+Tried to integrate it in the ubuntu Apache server, But ssl connection was not successful
+
+current operation mode (standalone python flask instance):
+1. Open a terminal on Ubuntu;
+2. browse into ~/research/chatbot/DialoGPT
+3. source activate dialogpt
+4. Make sure the mysql server is running (/opt/lampp) by runing:
+   sudo /opt/lampp/lampp startmysql
+4. python app.py 
+5. keep the terminal open for continued service.
+
+
