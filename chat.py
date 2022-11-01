@@ -35,21 +35,20 @@ class Chatbot:
         # bot_input_ids = new_user_input_ids
         # print(bot_input_ids)
         # generated a response while limiting the total chat history to 1000 tokens, 
-        self.chat_history_ids = self.model.generate(
-            bot_input_ids, max_length=1000,
-            pad_token_id=self.tokenizer.eos_token_id,
-            top_p=0.92, top_k = 10
-        )
-
         # self.chat_history_ids = self.model.generate(
         #     bot_input_ids, max_length=1000,
-        #     pad_token_id=self.tokenizer.eos_token_id,  
-        #     no_repeat_ngram_size=3,       
-        #     do_sample=True, 
-        #     top_k=50, 
-        #     top_p=0.7,
-        #     temperature = 0.3
+        #     pad_token_id=self.tokenizer.eos_token_id,
+        #     top_p=0.92, top_k = 10
         # )
+
+        self.chat_history_ids = self.model.generate(
+            bot_input_ids, max_length=1000,
+            pad_token_id=self.tokenizer.eos_token_id,  
+            no_repeat_ngram_size=3,       
+            do_sample=True, 
+            top_k=40, 
+            temperature = 0.95
+        )
 
         # pretty print last ouput tokens from bot
         out_text = self.tokenizer.decode(self.chat_history_ids[:, bot_input_ids.shape[-1]:][0], skip_special_tokens=True)
